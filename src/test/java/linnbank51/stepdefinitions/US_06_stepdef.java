@@ -3,12 +3,7 @@ package linnbank51.stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import linnbank51.pages.US_06;
-import linnbank51.utilities.ReusableMethods;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class US_06_stepdef {
     US_06 us_06 = new US_06();

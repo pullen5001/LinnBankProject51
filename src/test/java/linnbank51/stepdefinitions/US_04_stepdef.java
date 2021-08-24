@@ -7,9 +7,6 @@ import io.cucumber.java.en.When;
 import linnbank51.pages.US_04;
 import linnbank51.utilities.ConfigurationReader;
 import linnbank51.utilities.Driver;
-import linnbank51.pages.US_04;
-import linnbank51.utilities.ConfigurationReader;
-import linnbank51.utilities.Driver;
 import org.junit.Assert;
 
 

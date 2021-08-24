@@ -8,8 +8,6 @@ import linnbank51.pages.US_05;
 import linnbank51.pages.US_06;
 import linnbank51.utilities.Driver;
 import linnbank51.utilities.ReusableMethods;
-import linnbank51.pages.US_05;
-import linnbank51.utilities.ReusableMethods;
 import org.junit.Assert;
 
 public class US_05_stepdef {
