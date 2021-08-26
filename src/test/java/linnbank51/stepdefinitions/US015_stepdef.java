@@ -79,6 +79,6 @@ public class US015_stepdef {
     public void user_verifies_the_transaction() {
         String vid = us_015.verifyID.getText();
         Assert.assertEquals(us_015.verifyID.getText(),vid);
-    }
+    
 }
-
+  
