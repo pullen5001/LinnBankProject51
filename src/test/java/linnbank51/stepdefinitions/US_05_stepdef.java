@@ -3,11 +3,10 @@ package linnbank51.stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import linnbank.pages.US_04;
-import linnbank.pages.US_05;
-import linnbank.pages.US_06;
-import linnbank.utilities.Driver;
-import linnbank.utilities.ReusableMethods;
+import linnbank51.pages.US_04;
+import linnbank51.pages.US_05;
+import linnbank51.utilities.Driver;
+import linnbank51.utilities.ReusableMethods;
 import org.junit.Assert;
 
 public class US_05_stepdef {
