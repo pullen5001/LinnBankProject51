@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import linnbank51.pages.US_04;
 import linnbank51.pages.US_05;
-import linnbank51.pages.US_06;
+
 import linnbank51.utilities.Driver;
 import linnbank51.utilities.ReusableMethods;
 import org.junit.Assert;
