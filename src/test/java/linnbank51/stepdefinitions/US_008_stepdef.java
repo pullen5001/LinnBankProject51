@@ -3,6 +3,7 @@ package linnbank51.stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import linnbank51.pages.US_007;
 import linnbank51.pages.US_008;
 import linnbank51.utilities.ConfigurationReader;
 import linnbank51.utilities.ReusableMethods;
@@ -10,7 +11,9 @@ import org.junit.Assert;
 
 public class US_008_stepdef {
 
+    US_007 us_007=new US_007();
     US_008 us_008 = new US_008();
+
 
     @Then("user clicks on passwordButton")
     public void userClicksOnPasswordButton() {

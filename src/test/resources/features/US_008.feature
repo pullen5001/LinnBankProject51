@@ -1,12 +1,10 @@
 @US_008
-Feature: US_008_Password segment on Homepage should be editable
-  Background: user enters linnbank home page
-    Given user enters linnbank home page
-    Then user clicks on human icon
-    Then user enters sign in button
-    Then user enters valid customer username "Aya"
-    Then user enters valid password "ayaHappy123"
-    Then user clicks on sign in button
+Feature: US007_System should not allow to make updates with invalid credentials
+  Background: user is on linnbank home page
+    Given user is on linnbank home page
+    Then user provides valid customer username "Aya"
+    Then user provides valid password "ayaHappy123"
+    Then user navigates on sign in button and click
     Then user clicks on customer account button
     Then user clicks on passwordButton
 
