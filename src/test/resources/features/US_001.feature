@@ -22,4 +22,4 @@ Feature: US_001 success register with valid credentials
 
     Examples:
       |SSN         |Firstname|Lastname|Address                  |MobilePhoneNr|Username|Emailaddress    |Password  |PasswordConf|SuccessMsg|
-      |110-34-6789|Smike   |Clark   |104 Green st Virginia 26724|113-222-4444 |smke8888 |vlarkg@gmail.com|Zarabuk62!|Zarabuk62!  |Registration saved! Please check your email for confirmation alert.|
+      |179-34-6389|Mindy   |Clark   |104 Green st Virginia 26724|113-222-4444 |mindy01 |cindy01@gmail.com|Zarabuk62!|Zarabuk62!  |Registration saved! Please check your email for confirmation alert.|
