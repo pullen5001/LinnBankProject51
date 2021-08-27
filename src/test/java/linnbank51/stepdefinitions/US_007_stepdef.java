@@ -13,30 +13,23 @@ public class US_007_stepdef {
 
     US_007 us_007=new US_007();
 
-    @Given("user enters linnbank home page")
-    public void user_enters_linnbank_home_page() {
+    @Given("user is on linnbank home page")
+    public void user_is_on_linnbank_home_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("application_url"));
-    }
-    @Then("user clicks on human icon")
-    public void user_clicks_on_human_icon() {
         us_007.accountIcon.click();
-    }
-
-    @Then("user enters sign in button")
-    public void user_enters_sign_in_button() {
         us_007.signinButton.click();
     }
 
-    @Then("user enters valid customer username {string}")
-    public void user_enters_valid_customer_username(String string) {
+    @Then("user provides valid customer username {string}")
+    public void user_provides_valid_customer_username(String string) {
         us_007.userName.sendKeys(ConfigurationReader.getProperty("customer_username"));
     }
-    @Then("user enters valid password {string}")
-    public void user_enters_valid_password(String string) {
+    @Then("user provides valid password {string}")
+    public void user_provides_valid_password(String string) {
         us_007.password.sendKeys(ConfigurationReader.getProperty("customer_password"));
     }
-    @Then("user clicks on sign in button")
-    public void user_clicks_on_sign_in_button() {
+    @Then("user navigates on sign in button and click")
+    public void user_navigates_on_sign_in_button_and_click() {
         us_007.submitButton.click();
     }
 
@@ -103,6 +96,11 @@ public class US_007_stepdef {
     @Then("user verifies the message has {string}")
     public void userVerifiesTheMessageHas(String message) {
         Assert.assertTrue(us_007.invalidMessage.isDisplayed());
+    }
+
+
+    @Then("user provide valid password {string}")
+    public void userProvideValidPassword(String arg0) {
     }
 }
 
