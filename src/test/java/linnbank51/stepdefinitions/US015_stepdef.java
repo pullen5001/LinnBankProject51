@@ -92,5 +92,5 @@ public class US015_stepdef {
         String vid = us_015.verifyID.getText();
         Assert.assertEquals(us_015.verifyID.getText(), vid);
 
-    }
+    }}
 
