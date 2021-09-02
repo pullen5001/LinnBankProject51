@@ -8,7 +8,15 @@ import linnbank51.utilities.ConfigurationReader;
 import linnbank51.utilities.Driver;
 import linnbank51.utilities.ReusableMethods;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ISelect;
+import org.openqa.selenium.support.ui.Select;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
 
 public class US_009_stepdef {
 
@@ -43,11 +51,13 @@ public class US_009_stepdef {
 
     @Then("employee navigates to my operations")
     public void employee_navigates_to_my_operations() {
-        us_009.myOperationsButton.click();    }
+        us_009.myOperationsButton.click(); ReusableMethods.waitFor(2);   }
+
 
     @Then("employee clicks on Manage customers")
     public void employee_clicks_on_manage_customers() {
         us_009.manageCustomersButton.click();
+        ReusableMethods.waitFor(2);
     }
 
     @Then("employee should see Customers page")
@@ -57,6 +67,37 @@ public class US_009_stepdef {
     @Then("employee clicks on Create a new Customer button")
     public void employee_clicks_on_create_a_new_customer_button() {
         us_009.createANewCustomerbutton.click();
+    }
+
+    @Then("employee integrates an account to Customer")
+    public void employee_integrates_an_account() {
+        us_009.createANewCustomerbutton.click();
+        ReusableMethods.waitFor(2);
+        us_009.ssnSearchBox.sendKeys(ConfigurationReader.getProperty("demo_ssn"));
+        ReusableMethods.waitFor(2);
+        us_009.searchButton.click();
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue(us_009.alertMessage.isDisplayed());
+        ReusableMethods.waitFor(2);
+        us_009.middleNameBox.sendKeys("ME");
+        ReusableMethods.waitFor(2);
+        us_009.phoneNumberBox.sendKeys("854-595-2658");
+        ReusableMethods.waitFor(2);
+        us_009.zipCodeBox.sendKeys("25684");
+        ReusableMethods.waitFor(2);
+        us_009.cityBox.sendKeys("New York City");
+        ReusableMethods.waitFor(2);
+        Select select=new Select(us_009.countrySelectBox);
+        select.selectByIndex(3);
+        ReusableMethods.waitFor(2);
+        us_009.stateBox.sendKeys("New York");
+        ReusableMethods.waitFor(2);
+       Actions actions = new Actions(Driver.getDriver());
+       actions.keyDown(Keys.LEFT_CONTROL).click(us_009.fisrtAcc).click(us_009.secAcc).keyUp(Keys.LEFT_CONTROL).perform();
+       us_009.saveButton.click();
+        ReusableMethods.waitFor(2);
+
+
     }
 
     @Given("employee should see Create or edit a Customer page")

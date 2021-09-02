@@ -92,4 +92,15 @@ public class US_009 {
 
     @FindBy(xpath = "//span[.='Sign out']")
     public WebElement signOut;
+
+    @FindBy(xpath = "//option[@value='24542']")
+    public WebElement fisrtAcc;
+
+    @FindBy(xpath = "//option[@value='28767']")
+    public WebElement secAcc;
+
+    @FindBy(xpath = "//tbody")
+    public WebElement accountDet;
+
+
 }

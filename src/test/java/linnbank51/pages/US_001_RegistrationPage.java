@@ -67,4 +67,6 @@ public class US_001_RegistrationPage  {
     @FindBy(xpath="//*[.='Your SSN is invalid']")
     public WebElement ssnErrorText;
 
+
+
 }

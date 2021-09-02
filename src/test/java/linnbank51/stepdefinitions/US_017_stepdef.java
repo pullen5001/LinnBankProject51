@@ -1,13 +1,17 @@
 package linnbank51.stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import linnbank51.pages.US_017;
+import linnbank51.pages.US_04;
 import linnbank51.utilities.ConfigurationReader;
 import linnbank51.utilities.Driver;
+import linnbank51.utilities.ReusableMethods;
 
 public class US_017_stepdef {
     US_017 us_17 = new US_017();
+    US_04 us_04 = new US_04();
 
     @Given("Admin clicks on human icon")
     public void admin_clicks_on_human_icon() {
@@ -43,6 +47,29 @@ public class US_017_stepdef {
     @Then("Admin clicks on User management from dropdown")
     public void admin_clicks_on_user_management_from_dropdown() {
         us_17.userManagement.click();
+
+    }
+
+    @And("user logs out from employee account")
+    public void userLogsOutFromEmployeeAccount() {
+        us_17.accountMenu.click();
+        ReusableMethods.waitFor(2);
+        us_17.signOutButton.click();
+        ReusableMethods.waitFor(2);
+    }
+
+    @And("user logs in customer account {string} {string}")
+    public void userLogsInCustomerAccount(String username, String password) {
+        us_04.accountIcon.click();
+        ReusableMethods.waitFor(2);
+        us_04.signinButton.click();
+        ReusableMethods.waitFor(2);
+        us_04.userName.sendKeys(ConfigurationReader.getProperty(username));
+        ReusableMethods.waitFor(2);
+        us_04.passWord.sendKeys(ConfigurationReader.getProperty(password));
+        ReusableMethods.waitFor(2);
+        us_04.submitButton.click();
+        ReusableMethods.waitFor(2);
 
     }
 /*

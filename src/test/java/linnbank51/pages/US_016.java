@@ -47,5 +47,8 @@ public class US_016 {
     @FindBy(xpath = "//*[@id=\"make-transfer\"]")
     public WebElement makeTransferButton;
 
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement successMessage;
+
 
 }

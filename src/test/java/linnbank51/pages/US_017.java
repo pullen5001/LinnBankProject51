@@ -24,13 +24,23 @@ public class US_017 {
     public WebElement submitButton;
 
 
-    @FindBy(xpath = "(//*[@id=\"admin-menu\"]/a/span")
+    @FindBy(xpath = "//*[@id=\"admin-menu\"]/a/span")
     public WebElement administrationButton;
 
     @FindBy(xpath = "//*[@id=\"admin-menu\"]/div/a[1]/span")
     public WebElement userManagement;
 
+    @FindBy(xpath = "//*[text()='Created date']")
+    public WebElement createdDateSort;
 
+    @FindBy(xpath = "(//*[text()='Deactivated'])[1]")
+    public WebElement deactivatedButton;
+
+    @FindBy(id = "account-menu")
+    public WebElement accountMenu;
+
+    @FindBy(xpath = "//*[text()='Sign out']")
+    public WebElement signOutButton;
 
 
 

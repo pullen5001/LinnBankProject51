@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import linnbank51.pages.US_015;
 import linnbank51.utilities.ConfigurationReader;
 import linnbank51.utilities.Driver;
+import linnbank51.utilities.ReusableMethods;
 import org.junit.Assert;
 
 public class US015_stepdef {
@@ -49,6 +50,8 @@ public class US015_stepdef {
     @Then("user clicks on my accounts")
     public void user_clicks_on_my_accounts() {
         us_015.myAccounts.click();
+        ReusableMethods.waitFor(2);
+
     }
 
     @Given("user see all account types and balance populated")
