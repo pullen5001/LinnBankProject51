@@ -1,12 +1,15 @@
 package linnbank51.stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import linnbank51.pages.US_016;
 import linnbank51.utilities.ConfigurationReader;
 import linnbank51.utilities.Driver;
+import linnbank51.utilities.ReusableMethods;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Select;
 
 public class US_016_stepdef {
     US_016 us_016 = new US_016();
@@ -40,6 +43,7 @@ public class US_016_stepdef {
     @Then("User clicks on My operations")
     public void user_clicks_on_my_operations() {
         us_016.myOperations.click();
+        ReusableMethods.waitFor(2);
     }
 
     @Then("user clicks on Transfer money from dropdown")
@@ -50,6 +54,37 @@ public class US_016_stepdef {
     @Given("user clicks From dropdown")
     public void user_clicks_from_dropdown() {
         us_016.fromDropdown.click();
+        ReusableMethods.waitFor(2);
+    }
+
+    @And("user selects first account")
+    public void userSelectsFirstAccount() {
+        Select select=new Select(us_016.fromDropdown);
+        select.selectByValue("24542");
+        ReusableMethods.waitFor(2);
+    }
+
+    @And("user selects second account")
+    public void userSelectsSecondAccount() {
+        Select select=new Select(us_016.toDropdown);
+        select.selectByValue("28767");
+        ReusableMethods.waitFor(2);
+    }
+
+    @And("user makes money transfer")
+    public void userMakesMoneyTransfer() {
+        us_016.balanceTextbox.sendKeys("5");
+        ReusableMethods.waitFor(2);
+        us_016.descriptionTextBox.sendKeys("Demo presentation");
+        ReusableMethods.waitFor(2);
+        us_016.makeTransferButton.click();
+        ReusableMethods.waitFor(2);
+    }
+
+    @And("user validates money transfer has been done successfully")
+    public void userValidatesMoneyTransferHasBeenDoneSuccessfully() {
+        Assert.assertTrue(us_016.successMessage.isDisplayed());
+        ReusableMethods.waitFor(2);
     }
 /*
 
