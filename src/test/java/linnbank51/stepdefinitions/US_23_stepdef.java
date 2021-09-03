@@ -10,6 +10,8 @@ import io.restassured.response.Response;
 import linnbank51.pojos.Customer;
 import linnbank51.pojos.Registrants;
 import linnbank51.utilities.ConfigurationReader;
+import linnbank51.utilities.ReadToTxt;
+import linnbank51.utilities.WriteToTxt;
 import org.junit.Assert;
 
 import java.io.IOException;
@@ -25,7 +27,7 @@ public class US_23_stepdef {
     JsonPath jsonPath;
     List<Map<String, Object>> allRegistrants;
     Registrants[] registrants;
-
+    String fileName = "C:\\Users\\gulda\\IdeaProjects\\LinnBankProject51\\src\\test\\resources\\test_data\\CustomerSSNs.txt";
     @Given("registrants endpoint {string}")
     public void usEndpoint(String api_url) {
         response = given().headers("Authorization",
@@ -57,10 +59,10 @@ public class US_23_stepdef {
     public void userGetsFifthRegistrantSsnAndValidate(String expectedSsn) throws IOException{
         ObjectMapper objectMapper = new ObjectMapper();
         Registrants[] registrants=objectMapper.readValue(response.asString(), Registrants[].class);
-       System.out.println(registrants[1].getSsn());
-        String actualSsn=registrants[1].getSsn();
-        Assert.assertEquals(expectedSsn, actualSsn);
+        WriteToTxt.saveDataInFile2(fileName,registrants);
 
+        List < String >  actualSSNList = ReadToTxt.returnCustomerSNNList(fileName);
+        Assert.assertTrue("The SSN Does Not Match!!", actualSSNList.contains(expectedSsn));
 
     }
 

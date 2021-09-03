@@ -2,6 +2,7 @@ package linnbank51.utilities;
 
 import linnbank51.pojos.Country;
 import linnbank51.pojos.Customer;
+import linnbank51.pojos.Registrants;
 import linnbank51.pojos.States;
 
 import java.io.BufferedWriter;
@@ -86,6 +87,19 @@ public class WriteToTxt {
     }
 
     public static void saveDataInFile2(String fileName, Customer[] customers) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+            for (int i = 0; i < customers.length; i++)
+
+                writer.append(customers[i].getSsn() + ",\n");
+
+            writer.close();
+        } catch (Exception e) {
+
+        }
+    }
+
+    public static void saveDataInFile2(String fileName, Registrants[] customers) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
             for (int i = 0; i < customers.length; i++)
