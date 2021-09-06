@@ -8,15 +8,15 @@
       Then user should read all registrant data
 
 
-    @TC_2302
+    @ONLY @TC_2302
     Scenario: TC_2302 read all customers you created and validate them 1 by 1
-      Given user gets fifth registrant ssn "245-35-5468" and validate
-      And one user gets fifth registrant "firstName":"Adam" and validate
-      And two user gets fifth registrant "lastName":"John" and validate
-      And three user gets fifth registrant "address":"1101 ROPER MOUNTAIN RD" and validate
-      And four user gets fifth registrant "mobilePhoneNumber":"123-456-7890" and validate
-      And five user gets fifth registrant "userId":4092 and validate
-      And six user gets fifth registrant "userName":"adam" and validate
-      And seven user gets fifth registrant "email":"abc.user@gmail.com" and validate
-      And eight user gets fifth registrant "createDate":"2020-11-09T15:31:53.544Z" and validate
+      Given user gets all registrant ssn and validate "245-35-5468"
+      And user gets all registrant first name and validate "Adam"
+      And user gets all registrant last name and validate "John"
+      And user gets all registrant address and validate "1101 ROPER MOUNTAIN RD"
+      And user gets all registrant mobile Phone Number and validate "123-456-7890"
+      And user gets all registrant user Id and validate 4092
+      And user gets all registrant user name and validate "adam"
+      And user gets all registrant email and validate "abc.user@gmail.com"
+
 

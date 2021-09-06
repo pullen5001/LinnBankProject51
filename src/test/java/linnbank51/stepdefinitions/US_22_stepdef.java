@@ -3,6 +3,7 @@ package linnbank51.stepdefinitions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import linnbank51.pojos.Country;
@@ -56,4 +57,6 @@ public class US_22_stepdef {
         String actualSName = states[1].getName();
         Assert.assertEquals(expectedSName,actualSName);
     }
+
+
 }
