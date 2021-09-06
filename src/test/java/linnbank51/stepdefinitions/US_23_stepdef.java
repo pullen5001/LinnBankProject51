@@ -25,9 +25,10 @@ public class US_23_stepdef {
     Response response;
     ObjectMapper objectMapper;
     JsonPath jsonPath;
-    List<Map<String, Object>> allRegistrants;
     Registrants[] registrants;
-    String fileName = "C:\\Users\\gulda\\IdeaProjects\\LinnBankProject51\\src\\test\\resources\\test_data\\CustomerSSNs.txt";
+    String fileName = "C:\\Users\\gulsl\\IdeaProjects\\LinnBankProject51\\src\\test\\resources\\test_data\\RegistrantInfo1.txt";
+    List<Registrants> actualRegistrantsInfoList;
+
     @Given("registrants endpoint {string}")
     public void usEndpoint(String api_url) {
         response = given().headers("Authorization",
@@ -42,61 +43,51 @@ public class US_23_stepdef {
                 .extract()
                 .response();
 
-       response.prettyPrint();
+      //  response.prettyPrint();
     }
+
     @Then("user should read all registrant data")
     public void userShouldReadAllRegistrantData() throws IOException {
-        objectMapper = new ObjectMapper();
-        registrants=objectMapper.readValue(response.asString(), Registrants[].class);
-        for (int i=0; i<registrants.length; i++){
-            if(registrants[i] !=null){
-         //       System.out.println(registrants[i].getFirstName() + " " + registrants[i].getLastName() + " " + registrants[i].getId());
-            }
-        }
-    }
+       objectMapper = new ObjectMapper();
+       registrants=objectMapper.readValue(response.asString(), Registrants[].class);
+        WriteToTxt.saveDataInFileAllCustomersInfo2(fileName,registrants);
 
-    @And("user gets fifth registrant ssn {string} and validate")
-    public void userGetsFifthRegistrantSsnAndValidate(String expectedSsn) throws IOException{
-        ObjectMapper objectMapper = new ObjectMapper();
-        Registrants[] registrants=objectMapper.readValue(response.asString(), Registrants[].class);
-        WriteToTxt.saveDataInFile2(fileName,registrants);
-
-        List < String >  actualSSNList = ReadToTxt.returnCustomerSNNList(fileName);
-        Assert.assertTrue("The SSN Does Not Match!!", actualSSNList.contains(expectedSsn));
+        actualRegistrantsInfoList = ReadToTxt.returnCustomer2(fileName);
 
     }
 
-    @And("one user gets fifth registrant {string}:{string} and validate")
-    public void oneUserGetsFifthRegistrantAndValidate(String arg0, String arg1) {
+    @Given("user gets all registrant ssn and validate {string}")
+    public void userGetsAllRegistrantSsnAndValidate(Registrants expectedSsn) throws IOException {
+        Assert.assertFalse("The SSN Does Not Match!!", actualRegistrantsInfoList.contains(expectedSsn));
+
     }
 
-    @And("two user gets fifth registrant {string}:{string} and validate")
-    public void twoUserGetsFifthRegistrantAndValidate(String arg0, String arg1) {
+    @And("user gets all registrant first name and validate {string}")
+    public void userGetsAllRegistrantFirstNameAndValidate(Registrants expectedName) {
+        Assert.assertTrue("The SSN Does Not Match!!", actualRegistrantsInfoList.contains(expectedName));
     }
 
-    @And("three user gets fifth registrant {string}:{string} and validate")
-    public void threeUserGetsFifthRegistrantAndValidate(String arg0, String arg1) {
+    @And("user gets all registrant last name and validate {string}")
+    public void userGetsAllRegistrantLastNameAndValidate(String arg0) {
     }
 
-    @And("four user gets fifth registrant {string}:{string} and validate")
-    public void fourUserGetsFifthRegistrantAndValidate(String arg0, String arg1) {
+    @And("user gets all registrant address and validate {string}")
+    public void userGetsAllRegistrantAddressAndValidate(String arg0) {
     }
 
-    @And("five user gets fifth registrant {string}:{int} and validate")
-    public void fiveUserGetsFifthRegistrantAndValidate(String arg0, int arg1) {
+    @And("user gets all registrant mobile Phone Number and validate {string}")
+    public void userGetsAllRegistrantMobilePhoneNumberAndValidate(String arg0) {
     }
 
-    @And("six user gets fifth registrant {string}:{string} and validate")
-    public void sixUserGetsFifthRegistrantAndValidate(String arg0, String arg1) {
+    @And("user gets all registrant user Id and validate {int}")
+    public void userGetsAllRegistrantUserIdAndValidate(int arg0) {
     }
 
-    @And("seven user gets fifth registrant {string}:{string} and validate")
-    public void sevenUserGetsFifthRegistrantAndValidate(String arg0, String arg1) {
+    @And("user gets all registrant user name and validate {string}")
+    public void userGetsAllRegistrantUserNameAndValidate(String arg0) {
     }
 
-    @And("eight user gets fifth registrant {string}:{string} and validate")
-    public void eightUserGetsFifthRegistrantAndValidate(String arg0, String arg1) {
+    @And("user gets all registrant email and validate {string}")
+    public void userGetsAllRegistrantEmailAndValidate(String arg0) {
     }
-
-
 }

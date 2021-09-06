@@ -2,6 +2,7 @@ package linnbank51.utilities;
 
 import linnbank51.pojos.Country;
 import linnbank51.pojos.Customer;
+import linnbank51.pojos.Registrants;
 import linnbank51.pojos.States;
 
 import java.io.BufferedReader;
@@ -25,6 +26,34 @@ public class ReadToTxt {
                 customer.setLastName(each[1]);
                 customer.setSsn(each[2]);
                 all.add(customer);
+            }
+            String everything = sb.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return all;
+    }
+    public static List<Registrants> returnCustomer2(String filePath) {
+        List<Registrants> all = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+            System.out.println(line);
+            int i = 0;
+            while (line != null) {
+                Registrants registrants = new Registrants();
+                registrants.setFirstName(line.split(",")[i]);
+                registrants.setLastName(line.split(",")[i]);
+                registrants.setAddress(line.split(",")[i]);
+                registrants.setMobilePhoneNumber(line.split(",")[i]);
+                registrants.setUserName(line.split(",")[i]);
+                registrants.setEmail(line.split(",")[i]);
+                registrants.setSsn(line.split(",")[i]);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+                System.out.println(i++);
+                all.add(registrants);
+
             }
             String everything = sb.toString();
         } catch (Exception e) {

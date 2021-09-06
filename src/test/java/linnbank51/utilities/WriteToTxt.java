@@ -37,6 +37,20 @@ public class WriteToTxt {
         } catch (Exception e) {
         }
     }
+    public static void saveDataInFileAllCustomersInfo2(String fileName, Registrants[] registrants) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+            for (int i = 0; i < registrants.length; i++) {
+                writer.append(registrants[i].getFirstName() + " , "
+                        + registrants[i].getLastName() + " , " + registrants[i].getAddress() +
+                        " , " + registrants[i].getMobilePhoneNumber()+" , " + registrants[i].getSsn()+" , "
+                        + registrants[i].getUserName()+" , " + registrants[i].getEmail() +"\n");
+
+            }
+            writer.close();
+        } catch (Exception e) {
+        }
+    }
 
     public static void saveDataInFileSsn(String fileName, Customer customer) {
         try {
