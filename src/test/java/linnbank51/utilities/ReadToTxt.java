@@ -1,5 +1,6 @@
 package linnbank51.utilities;
 
+import com.github.javafaker.Number;
 import linnbank51.pojos.Country;
 import linnbank51.pojos.Customer;
 import linnbank51.pojos.Registrants;
@@ -38,20 +39,30 @@ public class ReadToTxt {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
-            System.out.println(line);
+
             int i = 0;
             while (line != null) {
                 Registrants registrants = new Registrants();
-                registrants.setFirstName(line.split(",")[i]);
-                registrants.setLastName(line.split(",")[i]);
-                registrants.setAddress(line.split(",")[i]);
-                registrants.setMobilePhoneNumber(line.split(",")[i]);
-                registrants.setUserName(line.split(",")[i]);
-                registrants.setEmail(line.split(",")[i]);
-                registrants.setSsn(line.split(",")[i]);
+                registrants.setFirstName(line.split("`")[0]);
+                registrants.setLastName(line.split("`")[1]);
+                registrants.setAddress(line.split("`")[2]);
+                registrants.setMobilePhoneNumber(line.split("`")[3]);
+                registrants.setUserName(line.split("`")[5]);
+                registrants.setEmail(line.split("`")[6]);
+                registrants.setSsn(line.split("`")[4]);
+                registrants.setId(Integer.parseInt(line.split("`")[7]));
+
+
+
+                    registrants.setUserId(Integer.parseInt(line.split("`")[8]));
+
+
+
+
+
                 sb.append(System.lineSeparator());
                 line = br.readLine();
-                System.out.println(i++);
+                i++;
                 all.add(registrants);
 
             }
@@ -143,6 +154,26 @@ public class ReadToTxt {
                 line = br.readLine();
                 System.out.println(i++);
                 all.add(customer.getSsn());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return all;
+    }
+    public static List<String> returnRegistrantsSNNList2(String filePath) {
+        List<String> all = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+            System.out.println(line);
+            int i = 0;
+            while (line != null) {
+                Registrants registrants = new Registrants();
+                registrants.setSsn(line.split(",")[0]);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+                System.out.println(i++);
+                all.add(registrants.getSsn());
             }
         } catch (Exception e) {
             e.printStackTrace();

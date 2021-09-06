@@ -41,10 +41,22 @@ public class WriteToTxt {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
             for (int i = 0; i < registrants.length; i++) {
-                writer.append(registrants[i].getFirstName() + " , "
-                        + registrants[i].getLastName() + " , " + registrants[i].getAddress() +
-                        " , " + registrants[i].getMobilePhoneNumber()+" , " + registrants[i].getSsn()+" , "
-                        + registrants[i].getUserName()+" , " + registrants[i].getEmail() +"\n");
+                if(i== registrants.length-1){
+                    writer.append(registrants[i].getFirstName() + "`"
+                            + registrants[i].getLastName() + "`" + registrants[i].getAddress() +
+                            "`" + registrants[i].getMobilePhoneNumber()+"`" + registrants[i].getSsn()+"`"
+                            + registrants[i].getUserName()+"`" + registrants[i].getEmail() + "`"+  registrants[i].getId() + "`"
+                    + registrants[i].getUserId());
+                }
+                else{
+                    writer.append(registrants[i].getFirstName() + "`"
+                            + registrants[i].getLastName() + "`" + registrants[i].getAddress() +
+                            "`" + registrants[i].getMobilePhoneNumber()+"`" + registrants[i].getSsn()+"`"
+                            + registrants[i].getUserName()+"`" + registrants[i].getEmail() + "`"+  registrants[i].getId() + "`"
+                            + registrants[i].getUserId()+"\n");
+
+                }
+
 
             }
             writer.close();
