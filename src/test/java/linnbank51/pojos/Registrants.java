@@ -10,6 +10,22 @@ public class Registrants {
     private  String ssn;
     private String firstName;
     private  String lastName;
+
+    @Override
+    public String toString() {
+        return "Registrants{" +
+                "id=" + id +
+                ", ssn='" + ssn + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", mobilePhoneNumber='" + mobilePhoneNumber + '\'' +
+                ", userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
     private String address;
     private String mobilePhoneNumber;
     private int userId;
