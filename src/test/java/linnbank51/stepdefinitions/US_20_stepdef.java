@@ -18,9 +18,11 @@ public class US_20_stepdef {
     Response response;
     List<Map<String, Object>> listOfCustomers;
     Response responseAll;
+    ObjectMapper objectMapper;
 
-    @Given("us_{int} endpoint {string}")
-    public void us_Endpoint(int arg0, String arg1) {
+
+    @Given("customer endpoint {string}")
+    public void customerEndpoint(String arg1) {
 
         response = given().headers("Authorization",
                         "Bearer " + ConfigurationReader.getProperty("token"),
@@ -29,7 +31,7 @@ public class US_20_stepdef {
                 .get(ConfigurationReader.getProperty("api_customer_endpoint"))
                 .then()
                 .contentType(ContentType.JSON).extract().response();
-    //    response.prettyPrint();
+        response.prettyPrint();
   /*      response = given().
                 auth().
                 oauth2(ConfigurationReader.getProperty("token")).
@@ -39,14 +41,14 @@ public class US_20_stepdef {
     }
     @Then("user should read all customer data that is created")
     public void user_should_read_all_customer_data_that_is_created() throws IOException {
-        ObjectMapper objectMapper=new ObjectMapper();
+        objectMapper=new ObjectMapper();
         Customer[] customer = objectMapper.readValue(response.asString(), Customer[].class);
         System.out.println(customer[2].getFirstName());
         listOfCustomers=response.as(ArrayList.class);
-        System.out.println(listOfCustomers);
-        System.out.println(customer[10].getEmail());
-        System.out.println(customer[5].getCreateDate());
-        System.out.println(customer[7].getSsn());
+//        System.out.println(listOfCustomers);
+//        System.out.println(customer[10].getEmail());
+//        System.out.println(customer[5].getCreateDate());
+//        System.out.println(customer[7].getSsn());
         System.out.println("==================== All ssn Numbers =========================");
         //all customers ssn numbers
         for(int i=0; i < customer.length; i++){
@@ -73,7 +75,7 @@ public class US_20_stepdef {
         System.out.println("=============== All emails contains K ==============================");
         for (int i=0; i<customer.length; i++){
             if (customer[i].getEmail().contains("k")){
-                System.out.println(customer[i].getEmail());
+               System.out.println(customer[i].getEmail());
             }
         }
         System.out.println("================ All users name =============================");
@@ -89,18 +91,11 @@ public class US_20_stepdef {
             }
         }
     }
-    @Then("user validate all customer information")
-    public void user_validate_all_customer_information() throws IOException {
-//        System.out.println("total number of the customers: " + listOfCustomers.size());//20
-//           Assert.assertTrue(listOfCustomers.size()==20);
-        ObjectMapper objectMapper=new ObjectMapper();
-        Customer[] customer = objectMapper.readValue(response.asString(), Customer[].class);
-        Assert.assertTrue(customer[2].getId()==42697);
-    }
+
 
     @Then("user gets seventh customer ssn {string} and validate")
     public void userGetsSeventhCustomerSsnAndValidate(String expectedSsn) throws IOException {
-        ObjectMapper objectMapper=new ObjectMapper();
+        objectMapper=new ObjectMapper();
         Customer[] customer = objectMapper.readValue(response.asString(), Customer[].class);
         String actualSsn = customer[7].getSsn();
         Assert.assertEquals(expectedSsn,actualSsn);
@@ -110,7 +105,7 @@ public class US_20_stepdef {
     public void oneUserGetsSeventhCustomerAndValidate(String arg0, String expectedFName) throws IOException {
         ObjectMapper objectMapper=new ObjectMapper();
         Customer[] customer = objectMapper.readValue(response.asString(), Customer[].class);
-        String actualFName = customer[7].getFirstName();
+        String actualFName = customer[9].getFirstName();
         Assert.assertEquals(expectedFName,actualFName);
     }
 
@@ -118,7 +113,7 @@ public class US_20_stepdef {
     public void twoUserGetsSeventhCustomerAndValidate(String arg0, String expectedLName) throws IOException {
         ObjectMapper objectMapper=new ObjectMapper();
         Customer[] customer = objectMapper.readValue(response.asString(), Customer[].class);
-        String actualLName = customer[7].getLastName();
+        String actualLName = customer[8].getLastName();
         Assert.assertEquals(expectedLName,actualLName);
     }
 
@@ -126,7 +121,7 @@ public class US_20_stepdef {
     public void threeUserGetsSeventhCustomerAndValidate(String arg0, String expectedAddress) throws IOException {
         ObjectMapper objectMapper=new ObjectMapper();
         Customer[] customer = objectMapper.readValue(response.asString(), Customer[].class);
-        String actualAddress = customer[7].getAddress();
+        String actualAddress = customer[8].getAddress();
         Assert.assertEquals(expectedAddress,actualAddress);
     }
 
@@ -134,7 +129,7 @@ public class US_20_stepdef {
     public void fourUserGetsSeventhCustomerAndValidate(String arg0, String expectedmPNumber) throws IOException {
         ObjectMapper objectMapper=new ObjectMapper();
         Customer[] customer = objectMapper.readValue(response.asString(), Customer[].class);
-        String actualmPNumber = customer[7].getMobilePhoneNumber();
+        String actualmPNumber = customer[8].getMobilePhoneNumber();
         Assert.assertEquals(expectedmPNumber,actualmPNumber);
     }
 
@@ -142,7 +137,7 @@ public class US_20_stepdef {
     public void sevenUserGetsSeventhCustomerAndValidate(String arg0, String expectedEmail) throws IOException {
         ObjectMapper objectMapper=new ObjectMapper();
         Customer[] customer = objectMapper.readValue(response.asString(), Customer[].class);
-        String actualEmail = customer[7].getEmail();
+        String actualEmail = customer[8].getEmail();
         Assert.assertEquals(expectedEmail,actualEmail);
     }
 
@@ -150,7 +145,7 @@ public class US_20_stepdef {
     public void eightUserGetsSeventhCustomerAndValidate(String arg0, String expectedCreateDate) throws IOException {
         ObjectMapper objectMapper=new ObjectMapper();
         Customer[] customer = objectMapper.readValue(response.asString(), Customer[].class);
-        String actualCreateDate = customer[7].getCreateDate();
+        String actualCreateDate = customer[8].getCreateDate();
         Assert.assertEquals(expectedCreateDate,actualCreateDate);
     }
 
@@ -158,7 +153,7 @@ public class US_20_stepdef {
     public void tenUserGetsSeventhCustomerAndValidate(String arg0, String expectedZipCode) throws IOException {
         ObjectMapper objectMapper=new ObjectMapper();
         Customer[] customer = objectMapper.readValue(response.asString(), Customer[].class);
-        String actualZipCode = customer[7].getZipCode();
+        String actualZipCode = customer[8].getZipCode();
         Assert.assertEquals(expectedZipCode,actualZipCode);
     }
 

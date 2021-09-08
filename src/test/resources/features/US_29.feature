@@ -20,7 +20,8 @@
         |query1|columnAdmin|
         |Select * from jhi_persistent_audit_event|principal|
 
-    Scenario Outline: database gmibank read and validate created data using with all country
+    Scenario Outline: validate all data by using database
+      Given database connection with db using "jdbc:postgresql://157.230.48.97:5432/gmibank_db" , "techprodb_user" and "Techpro_@126"
       And database gmibank user reads the country data using "<queryCountry>" and "<columnCountryName>"
       Then database gmibank validate country data
 

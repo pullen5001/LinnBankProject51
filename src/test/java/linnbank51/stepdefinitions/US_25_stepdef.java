@@ -9,7 +9,7 @@ import linnbank51.utilities.ConfigurationReader;
 import org.junit.Assert;
 
 import static io.restassured.RestAssured.given;
-import static linnbank51.JsonModels.CountryJson.createCountry;
+import static linnbank51.JsonModels.CountryJson.*;
 
 public class US_25_stepdef {
     
@@ -27,7 +27,7 @@ public class US_25_stepdef {
                         "Content-Type", ContentType.JSON,
                         "Accept", ContentType.JSON)
                 .when()
-                .body(createCountry)
+                .body(createCountry1)
                 .post(endpoint)
                 .then()
                 .contentType(ContentType.JSON)
@@ -71,7 +71,7 @@ public class US_25_stepdef {
                 .contentType(ContentType.JSON)
                 .extract()
                 .response();
-        responseAll.prettyPrint();
+      //  responseAll.prettyPrint();
 
         jsonPath=response.jsonPath();
         String stringIds = jsonPath.getString("id");
