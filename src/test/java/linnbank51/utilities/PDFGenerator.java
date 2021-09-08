@@ -298,7 +298,7 @@ public class PDFGenerator {
 
             document.open();
 
-            document.add(new Paragraph("                                     "+pdf_title));
+            document.add(new Paragraph("                                                          "+pdf_title));
 
             PdfPTable table = new PdfPTable(5);
             table.setWidthPercentage(110);

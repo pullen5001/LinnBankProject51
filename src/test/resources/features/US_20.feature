@@ -1,7 +1,7 @@
 @US_20
 Feature: user story 20
   Background: customer background
-    Given us_20 endpoint "https://www.gmibank.com/api/tp-customers"
+    Given customer endpoint "https://www.gmibank.com/api/tp-customers"
 
   @Customer_info
   Scenario: System should allow to read all registrant info using api end point
@@ -9,8 +9,7 @@ Feature: user story 20
 
     @TC_2002
     Scenario: TC_2002 read all customers you created and validate them 1 by 1
-      Given user validate all customer information
-      Then user gets seventh customer ssn "821-84-3971" and validate
+      Given user gets seventh customer ssn "821-84-3971" and validate
       And one user gets seventh customer "firstName":"Wendell" and validate
       And two user gets seventh customer "lastName":"Trantow" and validate
       And three user gets seventh customer "address":"Apt. 391 572 Rodrick Mountains, Port Myungfurt, KY 22925-3615", and validate
