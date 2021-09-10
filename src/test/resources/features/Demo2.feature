@@ -14,13 +14,13 @@
       Given user can update any country with endPoint "https://www.gmibank.com/api/tp-countries" "<name>" and its id "<id>"
       Examples: update country
         |name|id|
-        |Italia Old|95051|
+        |Italia Demo New|95053|
 
     Scenario Outline: User can delete a country
       Given user should be delete a country with using "<endpoint_country>" and its extension "<id>" and verify
     Examples: Delete country
       | endpoint_country| id|
-      |https://www.gmibank.com/api/tp-countries|/95051|
+      |https://www.gmibank.com/api/tp-countries|/95053|
 
     Scenario Outline: validate all data by using database
       Given database connection with db using "jdbc:postgresql://157.230.48.97:5432/gmibank_db" , "techprodb_user" and "Techpro_@126"
@@ -37,3 +37,5 @@
         |query|
         |Select * from tp_customer|
 
+#    Scenario: Create extent test reports
+#      Then user creates test extent reports
