@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="6" time="15.831">
+    <testcase classname="Demo2 Tests" name="System should allow to read information customer" time="4.291">
+        <system-out>
+            <![CDATA[Given customer endpoint "https://www.gmibank.com/api/tp-customers"..........passed
+Then user should read all customer data that is created.....................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Demo2 Tests" name="System should allow to create a new country" time="2.085">
+        <system-out>
+            <![CDATA[Given user goes to create country endpoint "https://www.gmibank.com/api/tp-countries" and create new country.passed
+Then user validate created country..........................................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Demo2 Tests" name="User can update a country" time="0.493">
+        <system-out>
+            <![CDATA[Given user can update any country with endPoint "https://www.gmibank.com/api/tp-countries" "Italia Demo New" and its id "95053".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Demo2 Tests" name="User can delete a country" time="2.051">
+        <system-out>
+            <![CDATA[Given user should be delete a country with using "https://www.gmibank.com/api/tp-countries" and its extension "/95053" and verify.passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Demo2 Tests" name="validate all data by using database" time="1.95">
+        <system-out>
+            <![CDATA[Given database connection with db using "jdbc:postgresql://157.230.48.97:5432/gmibank_db" , "techprodb_user" and "Techpro_@126".passed
+And database gmibank user reads the country data using "Select * from tp_country" and "name".passed
+Then database gmibank validate country data.................................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Demo2 Tests" name="create customer pdf file by using DataBase" time="3.924">
+        <system-out>
+            <![CDATA[Given database connection for pdf generator with db using "jdbc:postgresql://157.230.48.97:5432/gmibank_db" , "techprodb_user" and "Techpro_@126".passed
+And pdf user provides the query "Select * from tp_customer".................passed
+]]>
+        </system-out>
+    </testcase>
+</testsuite>

@@ -1,0 +1,359 @@
+[
+  {
+    "line": 3,
+    "elements": [
+      {
+        "start_timestamp": "2021-09-10T15:45:54.947Z",
+        "line": 4,
+        "name": "System should allow to read information customer",
+        "description": "",
+        "id": "demo2-tests;system-should-allow-to-read-information-customer",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3404005100,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "customer endpoint \"https://www.gmibank.com/api/tp-customers\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://www.gmibank.com/api/tp-customers\"",
+                  "offset": 18
+                }
+              ],
+              "location": "linnbank51.stepdefinitions.US_20_stepdef.customerEndpoint(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 753525800,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user should read all customer data that is created",
+            "match": {
+              "location": "linnbank51.stepdefinitions.US_20_stepdef.user_should_read_all_customer_data_that_is_created()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Demo2"
+          },
+          {
+            "name": "@Read_Customer"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-10T15:45:59.339Z",
+        "line": 9,
+        "name": "System should allow to create a new country",
+        "description": "",
+        "id": "demo2-tests;system-should-allow-to-create-a-new-country",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1562561600,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "user goes to create country endpoint \"https://www.gmibank.com/api/tp-countries\" and create new country",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://www.gmibank.com/api/tp-countries\"",
+                  "offset": 37
+                }
+              ],
+              "location": "linnbank51.stepdefinitions.US_25_stepdef.userGoesToCreateCountryEndpointAndCreateNewCountry(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 520174000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "user validate created country",
+            "match": {
+              "location": "linnbank51.stepdefinitions.US_25_stepdef.userValidateCreatedCountry()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Demo2"
+          },
+          {
+            "name": "@Read_Customer"
+          },
+          {
+            "name": "@Create_Update_Delete_Country"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-10T15:46:01.545Z",
+        "line": 17,
+        "name": "User can update a country",
+        "description": "",
+        "id": "demo2-tests;user-can-update-a-country;update-country;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 491259300,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "user can update any country with endPoint \"https://www.gmibank.com/api/tp-countries\" \"Italia Demo New\" and its id \"95053\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://www.gmibank.com/api/tp-countries\"",
+                  "offset": 42
+                },
+                {
+                  "val": "\"Italia Demo New\"",
+                  "offset": 85
+                },
+                {
+                  "val": "\"95053\"",
+                  "offset": 114
+                }
+              ],
+              "location": "linnbank51.stepdefinitions.US_26_stepdef.userCanUpdateAnyCountryWithEndPointAndItsId(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Demo2"
+          },
+          {
+            "name": "@Read_Customer"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-10T15:46:02.101Z",
+        "line": 23,
+        "name": "User can delete a country",
+        "description": "",
+        "id": "demo2-tests;user-can-delete-a-country;delete-country;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2047594800,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "user should be delete a country with using \"https://www.gmibank.com/api/tp-countries\" and its extension \"/95053\" and verify",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://www.gmibank.com/api/tp-countries\"",
+                  "offset": 43
+                },
+                {
+                  "val": "\"/95053\"",
+                  "offset": 104
+                }
+              ],
+              "location": "linnbank51.stepdefinitions.US_27_stepdef.userShouldBeDeleteACountryWithUsingAndItsExtensionAndVerify(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Demo2"
+          },
+          {
+            "name": "@Read_Customer"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-10T15:46:04.196Z",
+        "line": 31,
+        "name": "validate all data by using database",
+        "description": "",
+        "id": "demo2-tests;validate-all-data-by-using-database;database-gmibank-read-the-data;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1382277400,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "database connection with db using \"jdbc:postgresql://157.230.48.97:5432/gmibank_db\" , \"techprodb_user\" and \"Techpro_@126\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"jdbc:postgresql://157.230.48.97:5432/gmibank_db\"",
+                  "offset": 34
+                },
+                {
+                  "val": "\"techprodb_user\"",
+                  "offset": 86
+                },
+                {
+                  "val": "\"Techpro_@126\"",
+                  "offset": 107
+                }
+              ],
+              "location": "linnbank51.stepdefinitions.US_29_stepdef.databaseConnectionWithDbUsingAnd(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 561771500,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "database gmibank user reads the country data using \"Select * from tp_country\" and \"name\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Select * from tp_country\"",
+                  "offset": 51
+                },
+                {
+                  "val": "\"name\"",
+                  "offset": 82
+                }
+              ],
+              "location": "linnbank51.stepdefinitions.US_29_stepdef.databaseGmibankUserReadsTheCountryDataUsingAnd(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1001500,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "database gmibank validate country data",
+            "match": {
+              "location": "linnbank51.stepdefinitions.US_29_stepdef.databaseGmibankValidateCountryData()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Demo2"
+          },
+          {
+            "name": "@Read_Customer"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-10T15:46:06.215Z",
+        "line": 38,
+        "name": "create customer pdf file by using DataBase",
+        "description": "",
+        "id": "demo2-tests;create-customer-pdf-file-by-using-database;customer-pdf-data;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 776481500,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "database connection for pdf generator with db using \"jdbc:postgresql://157.230.48.97:5432/gmibank_db\" , \"techprodb_user\" and \"Techpro_@126\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"jdbc:postgresql://157.230.48.97:5432/gmibank_db\"",
+                  "offset": 52
+                },
+                {
+                  "val": "\"techprodb_user\"",
+                  "offset": 104
+                },
+                {
+                  "val": "\"Techpro_@126\"",
+                  "offset": 125
+                }
+              ],
+              "location": "linnbank51.stepdefinitions.US_30_stepdef.databaseConnectionForPdfGeneratorWithDbUsingAnd(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3145233500,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "pdf user provides the query \"Select * from tp_customer\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Select * from tp_customer\"",
+                  "offset": 28
+                }
+              ],
+              "location": "linnbank51.stepdefinitions.US_30_stepdef.pdfUserProvidesTheQuery(java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Demo2"
+          },
+          {
+            "name": "@Read_Customer"
+          }
+        ]
+      }
+    ],
+    "name": "Demo2 Tests",
+    "description": "",
+    "id": "demo2-tests",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/Demo2.feature",
+    "tags": [
+      {
+        "name": "@Demo2",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Read_Customer",
+        "type": "Tag",
+        "location": {
+          "line": 2,
+          "column": 3
+        }
+      }
+    ]
+  }
+]
