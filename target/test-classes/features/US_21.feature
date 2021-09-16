@@ -12,8 +12,3 @@ Feature: user story 21
     Given  user gets fifth country id 22349 and validate
     And one user gets fifth country "name":"KENYA" and validate
 
-
-
-
-
-
