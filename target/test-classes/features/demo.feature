@@ -8,7 +8,9 @@ Feature: Demo tests
     And user goes to linnbank page
     And user logins to admin account "admin_user" "admin_password"
     Then user navigates to user management section
+    Then capture screenshot
     Then user activates the applicant
+    Then capture screenshot
     Then user logs out from admin account
     Then user log in employee account "employee_user" "employee_password"
     And employee navigates to my operations
@@ -19,6 +21,7 @@ Feature: Demo tests
     Then User clicks on My operations
     And user clicks on my accounts
     And user get account details
+    Then capture screenshot
     Then User clicks on My operations
     Then user clicks on Transfer money from dropdown
     And user selects first account
