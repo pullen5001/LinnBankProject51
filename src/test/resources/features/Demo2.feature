@@ -37,5 +37,3 @@
         |query|
         |Select * from tp_customer|
 
-#    Scenario: Create extent test reports
-#      Then user creates test extent reports
